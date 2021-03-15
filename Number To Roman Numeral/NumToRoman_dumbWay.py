@@ -1,8 +1,12 @@
+''' 
+the dumb way kinda fail and i took a lot of time to kinda find my own way,
+so i continue to find the rigth answer online
+'''
+
 kelipatan = [1, 5, 10, 50, 100, 500, 1000]
 roman_num = {1: 'I', 5: 'V', 10: 'X', 50: 'L', 100: 'C', 500: 'D', 1000: 'M'}
 
 num = 97
-
 
 def get_kelipatan(num):
     if num >= 1000:
@@ -12,7 +16,8 @@ def get_kelipatan(num):
     for i in range(len(kelipatan)-1):
         sisa = num % kelipatan[i]
         if (num > sisa) and (num >= kelipatan[i]) and (num < kelipatan[i+1]):
-            if ((num/kelipatan[i+1]) <= 1) and ((kelipatan[i+1]-num) <= 10) and not(num < 4) and not(0 < num - kelipatan[i] < 4):
+            print(kelipatan[i])
+            if ((num/kelipatan[i+1]) <= 1) and ((kelipatan[i+1]-num) <= 10) and not(num < 4) and not(3 < num - kelipatan[i] < 4):
                 return kelipatan[i+1]
             else:
                 return kelipatan[i]
@@ -39,9 +44,11 @@ def convert_romans(num):
 
         roman_result += roman_num[kelipatan_num]
         num -= kelipatan_num
-        # print(num)
+        # print('num setelah di kurang :',num)
         
     return roman_result
 
-for i in range(1,2000):
-    print(f'{i} :',convert_romans(i))
+print(convert_romans_test(99))
+
+# for i in range(1,2000):
+#     print(f'{i} :',convert_romans(i))
